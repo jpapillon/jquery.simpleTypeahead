@@ -1,2 +1,2 @@
-jquery.simpleTypahead
+jquery.simpleTypeahead
 =====================
