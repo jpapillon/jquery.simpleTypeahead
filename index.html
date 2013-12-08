@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>jQuery.simpleTypeahead | Adds a typeahead dropdown to your input text fields</title>
+  <meta name="description" content="jQuery plugin to add a typeahead dropdown to your input text fields">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/jquery.simpleTypeahead.css">
+  <script src="js/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+<div class="row">
+  <div class="col-lg-8">
+    <h1>jQuery.simpleTypeahead</h1>
+    <p>Adds a typeahead dropdown menu to any text input. View <a href="https://github.com/jpapillon/jquery.simpleTypeahead">Github repository</a></p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-4">
+<pre>&lt;input class="typeahead" /&gt;
+
+&lt;script&gt;
+  $(".typeahead").simpleTypeahead({
+    items: ["Javascript", "Java", "CSS", "HTML"]
+  });
+&lt;/script&gt;
+</pre>
+  </div>
+  <div class="col-lg-4">
+    <input id="typeahead-default" />
+  </div>
+</div>
+
+<div class="row"><h2 class="col-lg-8">Options</h2></div>
+
+<section>
+<div class="row">
+  <h3 class="col-lg-8">maxNbMatches</h3>
+</div>
+<div class="row">
+  <p class="col-lg-8">Set the number of matches to show in the dropdown.</p>
+</div>
+<div class="row">
+  <div class="col-lg-4">
+<pre>
+$(".typeahead").simpleTypeahead({
+  items: ["Javascript", "Java", "CSS", "HTML"],
+  maxNbMatches: 1
+});
+</pre>
+  </div>
+  <div class="col-lg-4">
+    <input id="typeahead-maxNbMatches" />
+  </div>
+</div>
+</section>
+
+
+<section>
+<div class="row">
+  <h3 class="col-lg-8">mustMatch</h3>
+</div>
+<div class="row">
+  <p class="col-lg-8">Set the maximum number of tags that can be entered in the input field.</p>
+</div>
+<div class="row">
+  <div class="col-lg-4">
+<pre>
+$(".typeahead").simpleTypeahead({
+  items: ["Javascript", "Java", "CSS", "HTML"],
+  maxNbMatches: 1,
+  mustMatch: false,
+  onNoMatchesItem: function(value) {
+    return $('&lt;li class="typeahead-result"&gt;' + text + ' (Add Result)&lt;/li&gt;');
+  }
+}
+});
+</pre>
+  </div>
+  <div class="col-lg-4">
+    <input id="typeahead-mustMatch" />
+  </div>
+</div>
+</section>
+
+<div class="row"><h2 class="col-lg-8">Methods</h2></div>
+
+<section>
+<div class="row">
+  <h3 class="col-lg-8">getTags</h3>
+</div>
+<div class="row">
+  <p class="col-lg-8">Returns an array of the entered tag values.</p>
+</div>
+<div class="row">
+  <div class="col-lg-8">
+<pre>
+$(".tagger").simpleTagger("getTags");
+</pre>
+  </div>
+</div>
+
+<footer>
+  Created by <a href="https://twitter.com/jeremiepapillon" target="_blank">@jeremiepapillon</a>. Inpired by <a href="https://github.com/TimSchlechter/bootstrap-tagsinput" target="_blank">bootstrap-tasinput</a>.
+</footer>
+
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.simpleTypeahead.js"></script>
+
+<script>
+$("#typeahead-default").simpleTypeahead({
+  items: ["Javascript", "Java", "CSS", "HTML"]
+});
+
+$("#typeahead-maxNbMatches").simpleTypeahead({
+  items: ["Javascript", "Java", "CSS", "HTML"],
+  maxNbMatches: 1
+});
+
+$("#typeahead-mustMatch").simpleTypeahead({
+  items: ["Javascript", "Java", "CSS", "HTML"],
+  maxNbMatches: 1,
+  mustMatch: false,
+  onNoMatchesItem: function(value) {
+    return $('<li class="typeahead-result">' + value + ' (Add Result)</li>');
+  }
+});
+
+
+</script>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<!--script>
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+    e.src='//www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-XXXXX-X');ga('send','pageview');
+</script-->
+</body>
+</html>
